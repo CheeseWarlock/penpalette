@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>PenPalette</title>
+<style type="text/css">
+</style>
+<link href="./css/ui-lightness/jquery-ui-1.10.4.css" rel="stylesheet">
+<link href="./css/penpalette.css" rel="stylesheet">
+<script src="./socket.io/socket.io.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="./js/jquery-ui-1.10.4.min.js"></script>
+<script src="./js/penpalette.js"></script>
+<script>
+var socket;
+
+$(document).ready(function() {
+	socket = io.connect('http://' + document.domain + "/");
+	socket.on('news', function (data) {
+	  	console.log(data);
+	    $('#results').append(data.msg);
+	});
+
+	socket.on('palette', function(data) {
+		console.log(data);
+		painter.apply(data);
+	});
+});
+</script>
+</head>
+<body>
+	<div class="canvas-holder">
+		<canvas id="mainDraw" height=512 width=512></canvas>
+	</div>
+	<div class="toolbar">
+		<div class="toolbar-section">
+			<h3>Palette</h3>
+			<ul id="palette">
+				<li>None</li>
+				<li class="currentColor" data-color="#000000">Black</li>
+				<li data-color="#FF0000">Red</li>
+				<li data-color="#00FF00">Green</li>
+				<li data-color="#0000FF">Blue</li>
+				<li data-color="#00FFFF">Cyan</li>
+				<li data-color="#FF00FF">Magenta</li>
+				<li data-color="#FFFF00">Yellow</li>
+				<li data-color="#FFFFFF">White</li>
+			</ul>
+			<div id="colorPicker">
+				<div id="red-slider"></div>R
+				<br/>
+				<div id="green-slider"></div>G
+				<br/>
+				<div id="blue-slider"></div>B
+			</div>
+		</div>
+	</div>
+</body>
+</html>

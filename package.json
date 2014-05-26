@@ -1,0 +1,33 @@
+{
+  "name": "penpalette",
+  "version": "0.0.1-76",
+  "author": {
+    "name": "Joe Cardwell",
+    "email": "joe.cardwell@gmail.com",
+    "url": "http://joecardwell.ca"
+  },
+  "description": "A collaborative pixel editing environment!",
+  "main": "",
+  "keywords": [
+    "pixelart"
+  ],
+  "scripts": {
+    "start": "node ./bin/server.js"
+  },
+  "dependencies": {
+    "express": "3.x",
+    "twit": "1.0.0",
+    "oauth": "0.9.9",
+    "socket.io": "0.9.16",
+    "jquery": "2.1.1",
+    "jquery-ui": "1.10.5",
+    "mongoose": "3.8.11"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=0.4"
+  },
+  "analyze": false,
+  "readmeFilename": "ReadMe.md",
+  "subdomain": "penpalette"
+}
