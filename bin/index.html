@@ -1,10 +1,10 @@
 <html>
 <head>
 <title>PenPalette</title>
-<style type="text/css">
-</style>
 <link href="./css/ui-lightness/jquery-ui-1.10.4.css" rel="stylesheet">
 <link href="./css/penpalette.css" rel="stylesheet">
+<link rel="stylesheet" href="css/foundation.css" />
+<script src="js/vendor/modernizr.js"></script>
 <script src="./socket.io/socket.io.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="./js/jquery-ui-1.10.4.min.js"></script>
@@ -27,31 +27,70 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
-	<div class="canvas-holder">
-		<canvas id="mainDraw" height=512 width=512></canvas>
-	</div>
-	<div class="toolbar">
-		<div class="toolbar-section">
-			<h3>Palette</h3>
-			<ul id="palette">
-				<li>None</li>
-				<li class="currentColor" data-color="#000000">Black</li>
-				<li data-color="#FF0000">Red</li>
-				<li data-color="#00FF00">Green</li>
-				<li data-color="#0000FF">Blue</li>
-				<li data-color="#00FFFF">Cyan</li>
-				<li data-color="#FF00FF">Magenta</li>
-				<li data-color="#FFFF00">Yellow</li>
-				<li data-color="#FFFFFF">White</li>
-			</ul>
-			<div id="colorPicker">
-				<div id="red-slider"></div>R
-				<br/>
-				<div id="green-slider"></div>G
-				<br/>
-				<div id="blue-slider"></div>B
+	<nav class="top-bar" data-topbar>
+		<ul class="title-area">
+			<li class="name">
+				<h1><a href="#">PenPalette</a></h1>
+			</li>
+			<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+		</ul>
+
+		<section class="top-bar-section">
+		<!-- Right Nav Section -->
+		<ul class="right">
+			<li class="has-dropdown">
+				<a href="#">User</a>
+				<ul class="dropdown">
+					<li><a href="#">My Canvases</a></li>
+					<li><a href="#">Log Out</a></li>
+				</ul>
+			</li>
+		</ul>
+
+		<!-- Left Nav Section -->
+		<ul class="left">
+			<li><a href="#">View</a></li>
+		</ul>
+	</section>
+</nav>
+	<div class="row">
+		<div class="large-3 columns">
+			<div class="toolbar">
+				<div class="toolbar-section">
+					<h3>Palette</h3>
+					<ul id="palette">
+						<li>None</li>
+						<li class="currentColor" data-color="#000000">Black</li>
+						<li data-color="#FF0000">Red</li>
+						<li data-color="#00FF00">Green</li>
+						<li data-color="#0000FF">Blue</li>
+						<li data-color="#00FFFF">Cyan</li>
+						<li data-color="#FF00FF">Magenta</li>
+						<li data-color="#FFFF00">Yellow</li>
+						<li data-color="#FFFFFF">White</li>
+					</ul>
+					<div id="colorPicker">
+						<div id="red-slider"></div>R
+						<br/>
+						<div id="green-slider"></div>G
+						<br/>
+						<div id="blue-slider"></div>B
+					</div>
+				</div>
 			</div>
 		</div>
+		<div class="large-9 columns">
+			<div class="canvas-holder">
+				<canvas id="mainDraw" height=512 width=512></canvas>
+			</div>
+
+		</div>
 	</div>
+
+
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
 </body>
 </html>
